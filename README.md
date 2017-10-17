@@ -7,13 +7,13 @@ This scalar value function has been developed in alignment with the NHS Number c
 ## 2. TEXT_DATE_TO_DATE_CONVERSION
 Used to convert date values that are stored as text to formats that can be recognised by the DBMS as date values.  The formats that the function can currently convert are:
 
-***YYYYDDMMM:*** 2017/09/(Jan/January) | 2017-09-(Jan/January) | 2017.09.(Jan/January) | 2017 09 (Jan/January) 
-
-***YYYYDMMM:*** 2017/9/(Jan/January) | 2017-9-(Jan/January) | 2017.9.(Jan/January) | 2017 9 (Jan/January) 
-
 ***YYYYMMMDD:*** 2017/(Jan/January)/09 | 2017-(Jan/January)-09 | 2017.(Jan/January).09 | 2017 (Jan/January) 09 
 
 ***YYYYMMMD:*** 2017/(Jan/January)/9 | 2017-(Jan/January)-9 | 2017.(Jan/January).9 | 2017 (Jan/January) 9 
+
+***YYYYDDMMM:*** 2017/09/(Jan/January) | 2017-09-(Jan/January) | 2017.09.(Jan/January) | 2017 09 (Jan/January) 
+
+***YYYYDMMM:*** 2017/9/(Jan/January) | 2017-9-(Jan/January) | 2017.9.(Jan/January) | 2017 9 (Jan/January) 
 
 ***MMMDDYYYY:*** (Jan/January)/09/2017 | (Jan/January)-09-2017 | (Jan/January).09.2017 | (Jan/January) 09 2017 
 
