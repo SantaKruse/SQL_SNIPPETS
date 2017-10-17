@@ -5,7 +5,9 @@ This scalar value function has been developed in alignment with the NHS Number c
 ```SELECT NHS_NUMBER_CHECK(yourfield) FROM yourtable```
 
 ## 2. TEXT_DATE_TO_DATE_CONVERSION
-Used to convert date values that are stored as text to formats that can be recognised by the DBMS as date values.  The formats that the function can currently convert are:
+This scalar value function can be used to convert date values that are stored as text to formats that can be recognised by the DBMS as date values.  It has been developed to work with textual date values stored in ANSI (YYYY/MM/DD) and European (DD/MM/YYYY) formats.  If US dates are detected the an error message is thrown.  
+
+The specific formats that the function can currently convert are:
 
 ***YYYYMMMDD:*** 2017/(Jan/January)/09 | 2017-(Jan/January)-09 | 2017.(Jan/January).09 | 2017 (Jan/January) 09 
 
