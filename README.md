@@ -5,8 +5,8 @@ This scalar value function has been developed in alignment with the NHS Number c
 ```SELECT NHS_NUMBER_CHECK(yourfield) FROM yourtable```
 
 ## 2. TEXT_DATE_TO_DATE_CONVERSION
-This scalar value function can be used to convert date values that are stored as text to formats that can be recognised by the DBMS as date values.  It has been developed to work with textual date values stored in ANSI (YYYY/MM/DD) and European (DD/MM/YYYY) date formats.  The function takes an NVARCHAR(100) input value and outputs an ANSI formatted NVARCHAR(100) value if the input can be converted. If the input cannot be converted 'CAUTION DATE NOT FOUND' will be outputted. If an input is detected as a US date (MM/DD/YYYY) 'CAUTION US DATE (101) will be outputted'. Once the function has been created it can be called by running the following command where **yourfield** is the database field of the NHS Number that is to be validated: 
-```SELECT NHS_NUMBER_CHECK(yourfield) FROM yourtable```  
+This scalar value function can be used to convert date values that are stored as text to formats that can be recognised by the DBMS as date values.  It has been developed to work with textual date values stored in ANSI (YYYY/MM/DD) and European (DD/MM/YYYY) date formats.  The function takes an NVARCHAR(100) input value and outputs an ANSI formatted NVARCHAR(100) value if the input can be converted. If the input cannot be converted 'CAUTION DATE NOT FOUND' will be outputted. If an input is detected as a US date (MM/DD/YYYY) 'CAUTION US DATE (101) will be outputted'. Once the function has been created it can be called by running the following command where **yourfield** is the database field of the textual date that is to be converted: 
+```SELECT DATE_VALUE_TO_DATE_CONVERSION (yourfield) FROM yourtable```  
 
 The specific formats that the function can convert are:
 
