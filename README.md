@@ -19,7 +19,7 @@ Used to convert date values that are stored as text to formats that can be recog
 
 ***DMMMYYYY:*** 9/(Jan/January)/2017 | 9-(Jan/January)-2017 | 9.(Jan/January).2017 | 9 (Jan/January) 2017 
 
-***MMMDDYYYY:*** (JAN-JANUARY)/09/2017 | (JAN-JANUARY)-09-2017 | (JAN-JANUARY).09.2017 | (JAN-JANUARY) 09 2017 
+***MMMDDYYYY:*** (Jan/January)/09/2017 | (Jan/January)-09-2017 | (Jan/January).09.2017 | (Jan/January) 09 2017 
 
 ***MMMDYYYY:*** (Jan/January)/9/2017 | (Jan/January)-9-2017 | (Jan/January).9.2017 | (Jan/January) 9 2017 
 
