@@ -5,25 +5,43 @@ This scalar value function has been developed in alignment with the NHS Number c
 ```SELECT NHS_NUMBER_CHECK(yourfield) FROM yourtable```
 
 ## 2. TEXT_DATE_TO_DATE_CONVERSION
-Used to convert date values that are stored as text to formats that can be recognised by the DBMS as date values.  The formats that the function can currently convert are:
+This scalar value function can be used to convert date values that are stored as text to formats that can be recognised by the DBMS as date values.  It has been developed to work with textual date values stored in ANSI (YYYY/MM/DD) and European (DD/MM/YYYY) formats.  If US dates are detected the an error message is thrown.  
 
-YYYYDDMMM: 2017/09/(Jan/January) | 2017-09-(Jan/January) | 2017.09.(Jan/January) | 2017 09 (Jan/January) 
-YYYYDMMM: 2017/9/(Jan/January) | 2017-9-(Jan/January) | 2017.9.(Jan/January) | 2017 9 (Jan/January) 
-YYYYMMMDD: 2017/(Jan/January)/09 | 2017-(Jan/January)-09 | 2017.(Jan/January).09 | 2017 (Jan/January) 09 
-YYYYMMMD: 2017/(Jan/January)/9 | 2017-(Jan/January)-9 | 2017.(Jan/January).9 | 2017 (Jan/January) 9 
-DDMMMYYYY: 09/(Jan/January)/2017 | 09-(Jan/January)-2017 | 09.(Jan/January).2017 | 09 (Jan/January) 2017 
-DMMMYYYY: 9/(Jan/January)/2017 | 9-(Jan/January)-2017 | 9.(Jan/January).2017 | 9 (Jan/January) 2017 
-MMMDDYYYY: (JAN-JANUARY)/09/2017 | (JAN-JANUARY)-09-2017 | (JAN-JANUARY).09.2017 | (JAN-JANUARY) 09 2017 
-MMMDYYYY: (Jan/January)/9/2017 | (Jan/January)-9-2017 | (Jan/January).9.2017 | (Jan/January) 9 2017 
-DDMMYYYY: 09/01/2017 | 09-01-2017 | 09.01.2017 | 09 01 2017 
-DDMYYYY: 09/1/2017 | 09-1-2017 | 09.1.2017 | 09 1 2017 
-DMMYYYY: 9/01/2017 | 9-01-2017 | 9.01.2017 | 9 01 2017 
-DMYYYY: 9/1/2017 | 9-1-2017 | 9.1.2017 | 9 1 2017 
-YYYYMMDD: 2017/01/09 | 2017-01-09 | 2017.01.09 | 2017 01 09 
-YYYYMMD: 2017/01/9 | 2017-01-9 | 2017.01.9 | 2017 01 9 
-YYYYMDD: 2017/1/09 | 2017-1-09 | 2017.1.09 | 2017 1 09 
-YYYYMD: 2017/1/9 | 2017-1-9 | 2017.1.9 | 2017 1 9 
-42365: (Excel date stored as integer)
+The specific formats that the function can currently convert are:
+
+***YYYYMMMDD:*** 2017/(Jan/January)/09 | 2017-(Jan/January)-09 | 2017.(Jan/January).09 | 2017 (Jan/January) 09 
+
+***YYYYMMMD:*** 2017/(Jan/January)/9 | 2017-(Jan/January)-9 | 2017.(Jan/January).9 | 2017 (Jan/January) 9 
+
+***YYYYDDMMM:*** 2017/09/(Jan/January) | 2017-09-(Jan/January) | 2017.09.(Jan/January) | 2017 09 (Jan/January) 
+
+***YYYYDMMM:*** 2017/9/(Jan/January) | 2017-9-(Jan/January) | 2017.9.(Jan/January) | 2017 9 (Jan/January) 
+
+***MMMDDYYYY:*** (Jan/January)/09/2017 | (Jan/January)-09-2017 | (Jan/January).09.2017 | (Jan/January) 09 2017 
+
+***MMMDYYYY:*** (Jan/January)/9/2017 | (Jan/January)-9-2017 | (Jan/January).9.2017 | (Jan/January) 9 2017 
+
+***DDMMMYYYY:*** 09/(Jan/January)/2017 | 09-(Jan/January)-2017 | 09.(Jan/January).2017 | 09 (Jan/January) 2017 
+
+***DMMMYYYY:*** 9/(Jan/January)/2017 | 9-(Jan/January)-2017 | 9.(Jan/January).2017 | 9 (Jan/January) 2017 
+
+***YYYYMMDD:*** 2017/01/09 | 2017-01-09 | 2017.01.09 | 2017 01 09 
+
+***YYYYMMD:*** 2017/01/9 | 2017-01-9 | 2017.01.9 | 2017 01 9 
+
+***YYYYMDD:*** 2017/1/09 | 2017-1-09 | 2017.1.09 | 2017 1 09 
+
+***YYYYMD:*** 2017/1/9 | 2017-1-9 | 2017.1.9 | 2017 1 9 
+
+***DDMMYYYY:*** 09/01/2017 | 09-01-2017 | 09.01.2017 | 09 01 2017 
+
+***DDMYYYY:*** 09/1/2017 | 09-1-2017 | 09.1.2017 | 09 1 2017 
+
+***DMMYYYY:*** 9/01/2017 | 9-01-2017 | 9.01.2017 | 9 01 2017 
+
+***DMYYYY:*** 9/1/2017 | 9-1-2017 | 9.1.2017 | 9 1 2017 
+
+***Excel date stored as integer:*** 45325
 
 
 
