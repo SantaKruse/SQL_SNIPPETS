@@ -39,7 +39,7 @@ Used to convert date values that are stored as text to formats that can be recog
 
 ***DMYYYY:*** 9/1/2017 | 9-1-2017 | 9.1.2017 | 9 1 2017 
 
-***42365:*** (Excel date stored as integer)
+***Excel date stored as integer:*** 45325
 
 
 
