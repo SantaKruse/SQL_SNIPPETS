@@ -1,13 +1,22 @@
 # SQL_SNIPPETS
 
 ## 1. NHS_NUMBER_CHECK
-This scalar value function has been developed in alignment with the NHS Number check digit spec [here](http://www.datadictionary.nhs.uk/version2/data_dictionary/data_field_notes/n/nhs_number_de.asp?shownav=0).  It can be used to ensure that NHS Numbers are legitimate.  The function takes a NVARCHAR(100) input value and outputs an array of descriptive messages indicating the problem with the value or that the value is correct.  Once the function has been created it can be called by running the following command where **yourfield** is the database field of the NHS Number that is to be valided: 
+This scalar value function has been developed in alignment with the NHS Number check digit spec [here](http://www.datadictionary.nhs.uk/version2/data_dictionary/data_field_notes/n/nhs_number_de.asp?shownav=0).  It can be used to ensure that NHS Numbers are legitimate.  The function takes a NVARCHAR(100) input value and outputs an array of descriptive messages indicating the problem with the value or that the value is correct.  Once the function has been created it can be called by running the following command where **yourfield** is the database field of the NHS Number that is to be validated: 
 ```SELECT NHS_NUMBER_CHECK(yourfield) FROM yourtable```
 
 ## 2. TEXT_DATE_TO_DATE_CONVERSION
-This scalar value function can be used to convert date values that are stored as text to formats that can be recognised by the DBMS as date values.  It has been developed to work with textual date values stored in ANSI (YYYY/MM/DD) and European (DD/MM/YYYY) formats.  If US dates are detected the an error message is thrown.  
+This scalar value function can be used to convert date values that are stored as text to formats that can be recognised by the DBMS as date values.  It has been developed to work with textual date values stored in SQL Server Default (all possible combinations of MMM/DD/YYYY), ANSI (YYYY/MM/DD) and European (DD/MM/YYYY) date formats.  The function will recognise values that are seperated by any of the following characters: ```[/] [-] [.] [ ]```  
 
-The specific formats that the function can currently convert are:
+The function takes an NVARCHAR(100) input value and outputs an ANSI formatted NVARCHAR(100) value if the input can be converted. If the input cannot be converted ```'CAUTION DATE NOT FOUND'``` will be outputted. If an input is recognised as being a US date (MM/DD/YYYY) ```'CAUTION US DATE (101)'``` will be outputted.
+
+If an input value from the year 1905 is found, the function will ignore this value and output ```'CAUTION DATE NOT FOUND'```.  This is because date values from this year are usually integer year values incorrectly stored as dates.
+
+The function can be used as both a date converter and as a method for checking whether a value is already a date.  
+
+Once the function has been created it can be called by running the following command where **yourfield** is the database field of the textual date that is to be converted: 
+```SELECT DATE_VALUE_TO_DATE_CONVERSION (yourfield) FROM yourtable```  
+
+The specific formats that the function can convert are:
 
 ***YYYYMMMDD:*** 2017/(Jan/January)/09 | 2017-(Jan/January)-09 | 2017.(Jan/January).09 | 2017 (Jan/January) 09 
 
