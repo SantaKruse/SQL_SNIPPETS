@@ -56,7 +56,7 @@ The specific formats that the function can convert are:
 This stored procedure is designed to take an NVARCHAR(100) table name as input and autonomously work through each field of the table to remove 'NULL' (NULL stored as text) and '' (empty string).  Individual field names are not required, the procedure loops from the first to the last ordinal field position therefore individual field names are not needed.
 
 Once the procedure has been created it can be called by running the following command where **yourtable** is the database table that is to be processed: 
-```EXECUTE AUTOMATED_NULL_AND_BLANK_STRING_REMOVAL @TABLE= '``` **yourtable** 
+```EXECUTE AUTOMATED_NULL_AND_BLANK_STRING_REMOVAL @TABLE= 'yourtable'``` 
 
 
 
