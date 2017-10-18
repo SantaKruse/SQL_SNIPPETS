@@ -52,5 +52,8 @@ The specific formats that the function can convert are:
 
 ***Excel date stored as integer:*** 45325
 
+## 3. AUTOMATED_NULL_AND_BLANK_STRING_REMOVAL
+This stored procedure is designed to take an NVARCHAR(100) table name as input and autonomously work through each field of the table to remove 'NULL' (NULL stored as text) and '' (empty string)
+
 
 
