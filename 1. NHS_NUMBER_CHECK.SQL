@@ -1,8 +1,8 @@
 /******************************
-** Name: NHS_NUMBER_CHECK.sql   
-** Desc: Function to check NHS Number check digit
-** Auth: https://github.com/SantaKruse
-** Date: 13/10/2017
+** NAME: NHS_NUMBER_CHECK.SQL   
+** DESC: FUNCTION TO CHECK NHS NUMBER CHECK DIGIT
+** AUTH: HTTPS://GITHUB.COM/SANTAKRUSE
+** DATE: 13/10/2017
 **************************/
 
 CREATE FUNCTION NHS_NUMBER_CHECK(@NHS_NUMBER AS NVARCHAR(100)) RETURNS NVARCHAR(100)
