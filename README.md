@@ -5,7 +5,7 @@ This scalar value function has been developed in alignment with the NHS Number c
 ```SELECT NHS_NUMBER_CHECK(yourfield) FROM yourtable```
 
 ## 2. TEXT_DATE_TO_DATE_CONVERSION
-This scalar value function can be used to convert date values that are stored as text to formats that can be recognised by the DBMS as date values.  It has been developed to work with textual date values stored in SQL Server Default (all possible combinations of MMM/DD/YYYY), ANSI (YYYY/MM/DD) and European (DD/MM/YYYY) date formats.  The function will recognise values that are seperated by any of the following characters: ```[/] [-] [.] [ ]```  
+This scalar value function can be used to convert date values that are stored as text to formats that can be recognised by the DBMS as date values.  It has been developed to work with textual date values stored in SQL Server Default (all possible combinations of MON/DD/YYYY), ANSI (YYYY/MM/DD) and European (DD/MM/YYYY) date formats.  The function will recognise values that are seperated by any of the following characters: ```[/] [-] [.] [ ]```  
 
 The function takes an NVARCHAR(100) input value and outputs an ANSI formatted NVARCHAR(100) value if the input can be converted. If the input cannot be converted ```'CAUTION DATE NOT FOUND'``` will be outputted. If an input is recognised as being a US date (MM/DD/YYYY) ```'CAUTION US DATE (101)'``` will be outputted.
 
@@ -18,21 +18,21 @@ Once the function has been created it can be called by running the following com
 
 The specific formats that the function can convert are:
 
-***YYYYMMMDD:*** 2017/(Jan/January)/09 | 2017-(Jan/January)-09 | 2017.(Jan/January).09 | 2017 (Jan/January) 09 
+***YYYYMONDD:*** 2017/(Jan/January)/09 | 2017-(Jan/January)-09 | 2017.(Jan/January).09 | 2017 (Jan/January) 09 
 
-***YYYYMMMD:*** 2017/(Jan/January)/9 | 2017-(Jan/January)-9 | 2017.(Jan/January).9 | 2017 (Jan/January) 9 
+***YYYYMOND:*** 2017/(Jan/January)/9 | 2017-(Jan/January)-9 | 2017.(Jan/January).9 | 2017 (Jan/January) 9 
 
-***YYYYDDMMM:*** 2017/09/(Jan/January) | 2017-09-(Jan/January) | 2017.09.(Jan/January) | 2017 09 (Jan/January) 
+***YYYYDDMON:*** 2017/09/(Jan/January) | 2017-09-(Jan/January) | 2017.09.(Jan/January) | 2017 09 (Jan/January) 
 
-***YYYYDMMM:*** 2017/9/(Jan/January) | 2017-9-(Jan/January) | 2017.9.(Jan/January) | 2017 9 (Jan/January) 
+***YYYYDMON:*** 2017/9/(Jan/January) | 2017-9-(Jan/January) | 2017.9.(Jan/January) | 2017 9 (Jan/January) 
 
-***MMMDDYYYY:*** (Jan/January)/09/2017 | (Jan/January)-09-2017 | (Jan/January).09.2017 | (Jan/January) 09 2017 
+***MONDDYYYY:*** (Jan/January)/09/2017 | (Jan/January)-09-2017 | (Jan/January).09.2017 | (Jan/January) 09 2017 
 
-***MMMDYYYY:*** (Jan/January)/9/2017 | (Jan/January)-9-2017 | (Jan/January).9.2017 | (Jan/January) 9 2017 
+***MONDYYYY:*** (Jan/January)/9/2017 | (Jan/January)-9-2017 | (Jan/January).9.2017 | (Jan/January) 9 2017 
 
-***DDMMMYYYY:*** 09/(Jan/January)/2017 | 09-(Jan/January)-2017 | 09.(Jan/January).2017 | 09 (Jan/January) 2017 
+***DDMONYYYY:*** 09/(Jan/January)/2017 | 09-(Jan/January)-2017 | 09.(Jan/January).2017 | 09 (Jan/January) 2017 
 
-***DMMMYYYY:*** 9/(Jan/January)/2017 | 9-(Jan/January)-2017 | 9.(Jan/January).2017 | 9 (Jan/January) 2017 
+***DMONYYYY:*** 9/(Jan/January)/2017 | 9-(Jan/January)-2017 | 9.(Jan/January).2017 | 9 (Jan/January) 2017 
 
 ***YYYYMMDD:*** 2017/01/09 | 2017-01-09 | 2017.01.09 | 2017 01 09 
 
