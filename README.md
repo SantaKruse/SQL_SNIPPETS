@@ -1,10 +1,10 @@
 # SQL_SNIPPETS
 
-## 1. NHS_NUMBER_CHECK
+## 1. NHS Number Check
 This scalar value function has been developed in alignment with the NHS Number check digit spec [here](http://www.datadictionary.nhs.uk/version2/data_dictionary/data_field_notes/n/nhs_number_de.asp?shownav=0).  It can be used to ensure that NHS Numbers are legitimate.  The function takes a NVARCHAR(100) input value and outputs an array of descriptive messages indicating the problem with the value or that the value is correct.  Once the function has been created it can be called by running the following command where **yourfield** is the database field of the NHS Number that is to be validated: 
 ```SELECT NHS_NUMBER_CHECK(yourfield) FROM yourtable```
 
-## 2.1. TEXT_DATE_TO_DATE_CONVERSION
+## 2.1. Text date to date conversion
 This scalar value function can be used to convert date values that are stored as text to formats that can be recognised by the DBMS as date values.  It has been developed to work with textual date values stored in SQL Server Default (all possible combinations of MON/DD/YYYY), ANSI (YYYY/MM/DD) and European (DD/MM/YYYY) date formats.  The function will recognise values that are seperated by any of the following characters: ```[/] [-] [.] [ ]```  
 
 The function takes an NVARCHAR(100) input value and outputs an ANSI formatted NVARCHAR(100) value if the input can be converted. If the input cannot be converted ```'CAUTION DATE NOT FOUND'``` will be outputted. If an input is recognised as being a US date (MM/DD/YYYY) ```'CAUTION US DATE (101)'``` will be outputted.
@@ -55,7 +55,7 @@ The specific formats that the function can convert are:
 ## 2.1. TEXT_DATE_TO_DATE_CONVERSION
 This scalar value function can be used to convert date and time values that are stored as text to formats that can be recognised by the DBMS as time values.  It has been developed to work with textual date and time values stored in SQL Server Default (all possible combinations of MON/DD/YYYY), ANSI (YYYY/MM/DD) and European (DD/MM/YYYY) date formats.  The function will recognise values that are seperated by any of the following characters: ```[/] [-] [.] [ ]```  
 
-## 3. AUTOMATED_NULL_AND_BLANK_STRING_REMOVAL
+## 3. Automated NULL and empty string removal
 This stored procedure is designed to take an NVARCHAR(100) table name as input and autonomously work through each field of the table to remove 'NULL' (NULL stored as text) and '' (empty strings).  You do not declare the individual field names that require processing, the procedure automatically loops from the first to the last ordinal field position.
 
 Once the procedure has been created it can be called by running the following command where **yourtable** is the database table that is to be processed: 
