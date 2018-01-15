@@ -52,7 +52,7 @@ The specific formats that the function can convert are:
 
 ***Excel date stored as integer:*** 45325
 
-## 2.1. TEXT_DATE_TO_DATE_CONVERSION
+## 2.2. Text date to time conversion
 This scalar value function can be used to convert date and time values that are stored as text to formats that can be recognised by the DBMS as time values.  It has been developed to work with textual date and time values stored in SQL Server Default (all possible combinations of MON/DD/YYYY), ANSI (YYYY/MM/DD) and European (DD/MM/YYYY) date formats.  The function will recognise values that are seperated by any of the following characters: ```[/] [-] [.] [ ]```  
 
 ## 3. Automated NULL and empty string removal
