@@ -11,7 +11,7 @@ The function takes an NVARCHAR(100) input value and outputs an ANSI formatted NV
 
 If an input value from the year 1905 is found, the function will ignore this value and output ```'CAUTION DATE NOT FOUND'```.  This is because date values from this year are usually integer year values incorrectly stored as dates.
 
-The function can be used as both a date converter and as a method for checking whether a value is already a date.  
+The function can be used as both a date converter and as a method for checking whether a value is a valid date.  
 
 Once the function has been created it can be called by running the following command where **yourfield** is the database field of the textual date that is to be converted: 
 ```SELECT DATE_VALUE_TO_DATE_CONVERSION (yourfield) FROM yourtable```  
@@ -59,7 +59,7 @@ The function takes an NVARCHAR(100) input value and outputs an 24 hour format	(H
 
 If an input value from the year 1905 is found, the function will ignore this value and output ```'CAUTION TIME NOT FOUND'```.  This is because date values from this year are usually integer year values incorrectly stored as dates.
 
-The function can be used as both a time converter and as a method for checking whether a value is already a time.  
+The function can be used as both a time converter and as a method for checking whether a value is a valid time.  
 
 Once the function has been created it can be called by running the following command where **yourfield** is the database field of the textual date that is to be converted: 
 ```SELECT DATE_VALUE_TO_TIME_CONVERSION (yourfield) FROM yourtable```  
