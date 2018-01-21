@@ -55,7 +55,7 @@ The specific formats that the function can convert are:
 ## 2.2. Text date to time conversion
 This scalar value function can be used to convert date and time values that are stored as text to formats that can be recognised by the DBMS as time values.  It has been developed to work with textual date and time values stored in SQL Server Default (all possible combinations of MON/DD/YYYY), ANSI (YYYY/MM/DD) and European (DD/MM/YYYY) date formats.  The function will recognise values that are seperated by any of the following characters: ```[/] [-] [.] [ ]```  
 
-The function takes an NVARCHAR(100) input value and outputs an 24 hour format	(HH:mm:ss) NVARCHAR(100) value if the input can be converted. if no valid time can be converted but a valid date can be converted, the function will output 00:00:00. If the input cannot be converted ```'CAUTION TIME NOT FOUND'``` will be outputted. If an input is recognised as being a US date (MM/DD/YYYY) ```'CAUTION US DATE (101)'``` will be outputted.
+The function takes an NVARCHAR(100) input value and outputs an 24 hour format	(HH:mm:ss) NVARCHAR(100) value if the input can be converted. If the input cannot be converted to a valid time value but a valid date is found, the function will output 00:00:00. If the input cannot be converted ```'CAUTION TIME NOT FOUND'``` will be outputted. If an input is recognised as being a US date (MM/DD/YYYY) ```'CAUTION US DATE (101)'``` will be outputted.
 
 If an input value from the year 1905 is found, the function will ignore this value and output ```'CAUTION TIME NOT FOUND'```.  This is because date values from this year are usually integer year values incorrectly stored as dates.
 
