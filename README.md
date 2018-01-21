@@ -55,6 +55,27 @@ The specific formats that the function can convert are:
 ## 2.2. Text date to time conversion
 This scalar value function can be used to convert date and time values that are stored as text to formats that can be recognised by the DBMS as time values.  It has been developed to work with textual date and time values stored in SQL Server Default (all possible combinations of MON/DD/YYYY), ANSI (YYYY/MM/DD) and European (DD/MM/YYYY) date formats.  The function will recognise values that are seperated by any of the following characters: ```[/] [-] [.] [ ]```  
 
+The function takes an NVARCHAR(100) input value and outputs an 24 hour format	(HH:mm:ss) NVARCHAR(100) value if the input can be converted. if no valid time can be converted but a valid date can be converted, the function will output 00:00:00. If the input cannot be converted ```'CAUTION TIME NOT FOUND'``` will be outputted. If an input is recognised as being a US date (MM/DD/YYYY) ```'CAUTION US DATE (101)'``` will be outputted.
+
+If an input value from the year 1905 is found, the function will ignore this value and output ```'CAUTION TIME NOT FOUND'```.  This is because date values from this year are usually integer year values incorrectly stored as dates.
+
+The function can be used as both a time converter and as a method for checking whether a value is already a time.  
+
+Once the function has been created it can be called by running the following command where **yourfield** is the database field of the textual date that is to be converted: 
+```SELECT DATE_VALUE_TO_TIME_CONVERSION (yourfield) FROM yourtable```  
+
+The specific formats that the function can convert are:
+
+***All date formats outlined in the 2.1. Text date to date conversion function***
+
+***HH:MM:SS:*** 13:21:59
+
+***HH:MM:SS AM/PM:*** 11:13:40 AM
+
+***HH:MM AM/PM:*** 09:21 PM
+
+***HH:MM:*** 21:41
+
 ## 3. Automated NULL and empty string removal
 This stored procedure is designed to take an NVARCHAR(100) table name as input and autonomously work through each field of the table to remove 'NULL' (NULL stored as text) and '' (empty strings).  You do not declare the individual field names that require processing, the procedure automatically loops from the first to the last ordinal field position.
 
