@@ -92,13 +92,13 @@ The specific formats that the function can convert are:
 
 ***All date formats outlined in the 2.1. Text date to date conversion function***
 
-***MMM[]YY:*** Jan/January/17 | Jan/January-17 | Jan/January.17 | Jan/January 17
+***MMMYY:*** Jan/January/17 | Jan/January-17 | Jan/January.17 | Jan/January 17
 
 ***YYYY:*** 2017
 
-***[]YYYY:*** /2017 | -2017 | .2017 |  2017
+***YYYY:*** /2017 | -2017 | .2017 |  2017
 
-***YYYY[]:*** 2017/ | 2017- | 2017. | 2017 
+***YYYY:*** 2017/ | 2017- | 2017. | 2017 
 
 ## 3. Automated NULL and empty string removal
 This stored procedure is designed to take an NVARCHAR(100) table name as input and autonomously work through each field of the table to remove 'NULL' (NULL stored as text) and '' (empty strings).  You do not declare the individual field names that require processing, the procedure automatically loops from the first to the last ordinal field position.
