@@ -5,11 +5,11 @@ This scalar value function has been developed in alignment with the NHS Number c
 ```SELECT NHS_NUMBER_CHECK(yourfield) FROM yourtable```
 
 ## 2.1. Text date to date conversion
-This scalar value function can be used to convert date values that are stored as text to formats that can be recognised by the DBMS as date values.  It has been developed to work with textual date and datetime values stored in SQL Server Default (all possible combinations of MON/DD/YYYY), ANSI (YYYY/MM/DD) and European (DD/MM/YYYY) date formats.  The function will recognise values that are seperated by any of the following characters: ```[/] [-] [.] [ ]```  
+This scalar value function can be used to convert date values that are stored as text to formats that can be recognised by the DBMS as date values.  It has been developed to work with textual date and datetime values stored in SQL Server Default (all possible combinations of MON/DD/YYYY), ANSI (YYYY/MM/DD) and European (DD/MM/YYYY) date formats.  The function can also process dates stored as integers (for example the raw date format used in MS Excel).  The function will recognise values that are seperated by any of the following characters: ```[/] [-] [.] [ ]```  
 
 The function takes an NVARCHAR(100) input value and outputs an ANSI formatted NVARCHAR(100) value if the input can be converted. If the input cannot be converted ```'CAUTION DATE NOT FOUND'``` will be outputted. If an input is recognised as being a US date (MM/DD/YYYY) ```'CAUTION US DATE (101)'``` will be outputted.
 
-If an input value from the year 1905 is found, the function will ignore this value and output ```'CAUTION DATE NOT FOUND'```.  This is because date values from this year are usually integer year values incorrectly stored as dates.
+If a valid date input value from the year 1905 is found, the function will ignore this value and output ```'CAUTION DATE NOT FOUND'```.  This is because date values from this year are usually integer year values incorrectly stored as dates.
 
 The function can be used as both a date converter and as a method for checking whether a value is a valid date.  
 
@@ -53,11 +53,11 @@ The specific formats that the function can convert are:
 ***Excel date stored as integer:*** 45325
 
 ## 2.2. Text date to time conversion
-This scalar value function can be used to convert date and time values that are stored as text to formats that can be recognised by the DBMS as time values.  It has been developed to work with textual datetime, date and time values stored in SQL Server Default (all possible combinations of MON/DD/YYYY), ANSI (YYYY/MM/DD) and European (DD/MM/YYYY) date formats.  The function will recognise values that are seperated by any of the following characters: ```[/] [-] [.] [ ]```  
+This scalar value function can be used to convert date and time values that are stored as text to formats that can be recognised by the DBMS as time values.  It has been developed to work with textual datetime, date and time values stored in SQL Server Default (all possible combinations of MON/DD/YYYY), ANSI (YYYY/MM/DD) and European (DD/MM/YYYY) date formats.    The function can also process dates stored as integers (for example the raw date format used in MS Excel).  The function will recognise values that are seperated by any of the following characters: ```[/] [-] [.] [ ]```  
 
 The function takes an NVARCHAR(100) input value and outputs an 24 hour format	(HH:mm:ss) NVARCHAR(100) value if the input can be converted. If the input cannot be converted to a valid time value but a valid date is found, the function will output 00:00:00. If the input cannot be converted ```'CAUTION TIME NOT FOUND'``` will be outputted. If an input is recognised as being a US date (MM/DD/YYYY) ```'CAUTION US DATE (101)'``` will be outputted.
 
-If an input value from the year 1905 is found, the function will ignore this value and output ```'CAUTION TIME NOT FOUND'```.  This is because date values from this year are usually integer year values incorrectly stored as dates.
+If a valid date input value from the year 1905 is found, the function will ignore this value and output ```'CAUTION TIME NOT FOUND'```.  This is because date values from this year are usually integer year values incorrectly stored as dates.
 
 The function can be used as both a time converter and as a method for checking whether a value is a valid time.  
 
@@ -77,11 +77,11 @@ The specific formats that the function can convert are:
 ***HH:MM:*** 21:41
 
 ## 2.3. Text date to year conversion
-This scalar value function can be used to convert date values that are stored as text to four digit year formats.  It has been developed to work with textual datetime, date and time values stored in SQL Server Default (all possible combinations of MON/DD/YYYY), ANSI (YYYY/MM/DD) and European (DD/MM/YYYY) date formats.  The function will recognise values that are seperated by any of the following characters: ```[/] [-] [.] [ ]```  
+This scalar value function can be used to convert date values that are stored as text to four digit year formats.  It has been developed to work with textual datetime and date values stored in SQL Server Default (all possible combinations of MON/DD/YYYY), ANSI (YYYY/MM/DD) and European (DD/MM/YYYY) date formats.  The function can also process dates stored as integers (for example the raw date format used in MS Excel).  The function will recognise values that are seperated by any of the following characters: ```[/] [-] [.] [ ]```  
 
 The function takes an NVARCHAR(100) input value and outputs a four digit year NVARCHAR(100) value if the input can be converted. If the input cannot be converted ```'CAUTION YEAR NOT FOUND'``` will be outputted. If an input is recognised as being a US date (MM/DD/YYYY) ```'CAUTION US DATE (101)'``` will be outputted.
 
-If an input value from the year 1905 is found (date values from this year are usually integer year values incorrectly stored as dates), the function will convert the value to the correct year by calcualting the day difference from the date 1899-12-30 and the input value.
+If a valid date input value from the year 1905 is found (date values from this year are usually integer year values incorrectly stored as dates), the function will convert the value to a year format by calculating the day difference from the date 1899-12-30 and the input value.
 
 The function can be used as both a year converter and as a method for checking whether a value is a valid year.  
 
