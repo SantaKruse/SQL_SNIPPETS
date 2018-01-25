@@ -106,5 +106,12 @@ This stored procedure is designed to take an NVARCHAR(100) table name as input a
 Once the procedure has been created it can be called by running the following command where **yourtable** is the database table that is to be processed: 
 ```EXECUTE AUTOMATED_NULL_AND_BLANK_STRING_REMOVAL @TABLE= 'yourtable'``` 
 
+## 4. Automated customisable date created date updated and username trigger
+This stored procedure is designed to take an NVARCHAR(200) table name as input and autonomously add a trigger to the given table that fires on creation and update.  Its current configuration is to populate/update fields named ```DATE_UPDATED``` ```DATE_CREATED``` and ```USERNAME```. 
+
+Once the procedure has been created it can be called by running the following command where **yourtable** is the database table that is to be processed: 
+```EXECUTE AUTOMATED_CUSTOMISABLE_DATE_CREATED_DATE_UPDATED_USERNAME_TRIGGER @TABLE= 'yourtable'``` 
+
+
 
 
