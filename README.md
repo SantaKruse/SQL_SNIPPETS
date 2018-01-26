@@ -112,6 +112,9 @@ This stored procedure is designed to take an NVARCHAR(200) table name as input a
 Once the procedure has been created it can be called by running the following command where **yourtable** is the database table that is to be processed: 
 ```EXECUTE AUTOMATED_CUSTOMISABLE_DATE_CREATED_DATE_UPDATED_USERNAME_TRIGGER @TABLE= 'yourtable'``` 
 
+## 5. Fetch CKD stage
+This scalar value function has been developed to return the corrosponding CKD stage from an eGFR value.  The function takes a NVARCHAR(100) input value and outputs an NVARCHAR(2) CKD stage value.  If the value is less than 0.01 or greater than 200 'OR' (Out of Range) will be returned.  Once the function has been created it can be called by running the following command where **yourfield** is the database field of the eGFR value to be converted: 
+```SELECT FETCH_CKD_STAGE(yourfield) FROM yourtable```
 
 
 
