@@ -118,10 +118,15 @@ This scalar value function has been developed to return the corresponding CKD st
 
 ## 6. Fetch ethnicity adjusted eGFR
 This scalar value function has been developed to return an adjusted eGFR value if the patient is of black ethnicity.  The function takes an NVARCHAR(40) (patient ID) and a FLOAT (unadjusted eGFR value) input value and outputs an adjusted eGFR FLOAT value.  Before the function can been created the following values must be populated:
+
   ```<INSERT PATIENT ID>```: The patient identifier
+  
   ```<INSERT TABLE NAME>```: The name of the table that contains the ethnicity data for the patient
+  
   ```<INSERT FIELD NAME CONTAINING ETHNICITY VALUE>```: The field that contains ethnicity values
+  
   ```<INSERT BLACK ETHNICITY VALUE>```: The value that identifies Black ethnicity in the ```<INSERT FIELD NAME CONTAINING ETHNICITY VALUE>``` field.
+  
 Once the function has been created it can be called by running the following command where **yourfield** is the database field of the eGFR value to be adjusted: 
 ```SELECT FETCH_ETHNICITY_ADJSUTED_EGFR(yourfield) FROM yourtable```
 
