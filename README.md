@@ -127,6 +127,8 @@ This scalar value function has been developed to return an adjusted eGFR value i
   
   ```<INSERT BLACK ETHNICITY VALUE>```: The value that identifies Black ethnicity in the ```<INSERT FIELD NAME CONTAINING ETHNICITY VALUE>``` field.
   
+The function works by looking up the patient (by using the supplied patient ID) in a table that contains ethnicity data.  If the patient is found to be of Black ethnicity the adjsutment calculation will be applied to the supplied eGFR value and returned.
+  
 Once the function has been created it can be called by running the following command where **yourfield** is the database field of the eGFR value to be adjusted: 
 ```SELECT FETCH_ETHNICITY_ADJSUTED_EGFR(yourfield) FROM yourtable```
 
